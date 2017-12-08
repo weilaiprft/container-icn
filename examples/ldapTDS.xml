@@ -1,0 +1,19 @@
+<server>
+	<ldapRegistry id="localTDS" realm="defaultRealm"
+		host="enable11.fyre.ibm.com" 
+		baseDN="o=sample" 
+		port="389"
+		ldapType="IBM Tivoli Directory Server" 
+		bindDN="cn=P8Admin,o=sample" 
+		sslEnabled="false"
+		bindPassword="IBMFileNetP8">
+		<idsFilters
+			userFilter="(&amp;(cn=%v)(objectclass=person))" 
+			groupFilter="(&amp;(cn=%v)(|(objectclass=groupOfNames)
+                 (objectclass=groupOfUniqueNames)(objectclass=groupOfURLs)))"
+			userIdMap="*:cn" 
+			groupIdMap="*:cn" 
+			groupMemberIdMap="memberof:member">
+    </idsFilters>
+	</ldapRegistry>
+</server>

@@ -1,0 +1,17 @@
+<server>
+	<ldapRegistry id="localAD" realm="defaultRealm"
+		host="9.30.193.120" 
+		baseDN="dc=ecm,dc=ibm,dc=com" 
+		port="389"
+		ldapType="Microsoft Active Directory" 
+		bindDN="CN=CEAdmin,OU=Shared,OU=Engineering,OU=FileNet,dc=ecm,dc=ibm,dc=com" 
+		sslEnabled="false"
+		bindPassword="Genius1">
+		<activedFilters
+			userFilter="(&amp;(sAMAccountName=%v)(objectclass=user))"
+			groupFilter="(&amp;(sAMAccountName=%v)(objectclass=group))" 
+			userIdMap="user:sAMAccountName" 
+			groupIdMap="*:cn">
+		</activedFilters>
+	</ldapRegistry>
+</server>
