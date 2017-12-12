@@ -113,8 +113,8 @@ Examples of these files can be found in [samples](https://github.ibm.com/ecm-con
 ## 1. Pull the IBM Content Navigator Docker image.
 
 Use the following commands with your own credentials
-- ```docker login -u ***** -p ****** ecm-containerization-docker-local.artifactory.swg-devops.com```
-- ```docker pull ecm-containerization-docker-local.artifactory.swg-devops.com/navigator:latest```
+- ```docker login -u [Docker ID] -p [Password]```
+- ```docker pull ecmcontainers/ecm_earlyadopters_icn:earlyadopters-gm5.5```
 
 
 ## 2. Run the container in the Docker environment.
@@ -124,7 +124,7 @@ Reminder: A Linux host or virtual machine with Docker engine installed is requir
 You can use the following sample command to run the IBM Content Navigator container:  
 
 <b>Run Navigator container without monitoring:</b></br>
-- ```docker run -d --name icn -p 9080:9080 -p 9443:9443 -v /home/data/plugins:/opt/ibm/plugins -v /home/data/viewerlog:/opt/ibm/viewerconfig/logs -v /home/data/viewercache:/opt/ibm/viewerconfig/cache -v /home/data/logs:/opt/ibm/wlp/usr/servers/defaultServer/logs -v /home/data/configDropins/overrides:/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides ecm-containerization-docker-local.artifactory.swg-devops.com/navigator:latest```
+- ```docker run -d --name icn -p 9080:9080 -p 9443:9443 -v /home/data/plugins:/opt/ibm/plugins -v /home/data/viewerlog:/opt/ibm/viewerconfig/logs -v /home/data/viewercache:/opt/ibm/viewerconfig/cache -v /home/data/logs:/opt/ibm/wlp/usr/servers/defaultServer/logs -v /home/data/configDropins/overrides:/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides ecmcontainers/ecm_earlyadopters_icn:earlyadopters-gm5.5```
 
 After the container is started, you can browse to http://your-host-ip:9080/navigator or https://your-host-ip:9443/navigator on the host.
 
@@ -147,7 +147,7 @@ For monitoring environment variables, pls check [ECM Monitoring Github](https://
 ## Run the IBM Content Navigator container with monitoring.  
 
 Connect to the Bluemix metrics service by using IBM Cloud Monitoring metrics writer for space or organization scope, and connect to the Bluemix logging service using Bluemix multi-tenant lumberjack writer:
-- ```docker run -d --name icn -p 9080:9080 -p 9443:9443 --hostname=icn1 -e MON_METRICS_WRITER_OPTION=2 -e MON_METRICS_SERVICE_ENDPOINT=metrics.ng.bluemix.net:9095 -e MON_BMX_GROUP=com.ibm.ecm.monitor. -e MON_BMX_METRICS_SCOPE_ID={space or organization guid} -e MON_BMX_API_KEY={IAM API key} -e MON_LOG_SHIPPER_OPTION=2 -e MON_BMX_SPACE_ID={tenant id} -e MON_LOG_SERVICE_ENDPOINT=logs.opvis.bluemix.net:9091 -e MON_BMX_LOGS_LOGGING_TOKEN={log logging token} -v /home/data/viewerlog:/opt/ibm/viewerconfig/logs -v /home/data/viewercache:/opt/ibm/viewerconfig/cache -v /home/data/plugins:/opt/ibm/plugins -v /home/data/logs:/opt/ibm/wlp/usr/servers/defaultServer/logs -v /home/data/configDropins/overrides:/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides ecm-containerization-docker-local.artifactory.swg-devops.com/navigator:latest```
+- ```docker run -d --name icn -p 9080:9080 -p 9443:9443 --hostname=icn1 -e MON_METRICS_WRITER_OPTION=2 -e MON_METRICS_SERVICE_ENDPOINT=metrics.ng.bluemix.net:9095 -e MON_BMX_GROUP=com.ibm.ecm.monitor. -e MON_BMX_METRICS_SCOPE_ID={space or organization guid} -e MON_BMX_API_KEY={IAM API key} -e MON_LOG_SHIPPER_OPTION=2 -e MON_BMX_SPACE_ID={tenant id} -e MON_LOG_SERVICE_ENDPOINT=logs.opvis.bluemix.net:9091 -e MON_BMX_LOGS_LOGGING_TOKEN={log logging token} -v /home/data/viewerlog:/opt/ibm/viewerconfig/logs -v /home/data/viewercache:/opt/ibm/viewerconfig/cache -v /home/data/plugins:/opt/ibm/plugins -v /home/data/logs:/opt/ibm/wlp/usr/servers/defaultServer/logs -v /home/data/configDropins/overrides:/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides ecmcontainers/ecm_earlyadopters_icn:earlyadopters-gm5.5```
 
 ## Run the IBM Content Navigator container on Kubernetes.  
 
