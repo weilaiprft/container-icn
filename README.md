@@ -38,7 +38,7 @@ Before you deploy and run the IBM Content Navigator container image, confirm the
 
 ## 1. Prepare the database.
 
-You can use the provided sample database scripts to create and configure the IBM Content Navigator database on the DB2 server: [createICNDB.sh](https://github.ibm.com/ecm-container-service/navigator-docker/blob/master/examples/createICNDB.sh). <br>
+You can use the provided sample database scripts to create and configure the IBM Content Navigator database on the DB2 server: [createICNDB.sh](https://github.com/ibm-ecm/container-icn/blob/master/examples/createICNDB.sh). <br>
 
 Give proper privileges to the shell script:  
 ```
@@ -92,9 +92,9 @@ e.g.
 ## 4. Create the configuration details.
 
 Create the following files with data that is specific to your environment:    
-- XML configuration file for LDAP  (refer to sample for Microsoft Active Directory [ldapAD.xml](https://github.ibm.com/ecm-container-service/navigator-docker/tree/master/examples/ldapAD.xml))<br>
-- XML configuration file for JDBC Driver (refer to sample for DB2 JDBC driver [DB2JCCDriver.xml](https://github.ibm.com/ecm-container-service/navigator-docker/tree/master/examples/DB2JCCDriver.xml))<br>
-- XML configuration file for the IBM Content Navigator data source (refer to sample for data source configuration for DB2 [ICNDS.xml](https://github.ibm.com/ecm-container-service/navigator-docker/tree/master/examples/ICNDS.xml))<br>
+- XML configuration file for LDAP  (refer to sample for Microsoft Active Directory [ldapAD.xml](https://github.com/ibm-ecm/container-icn/tree/master/examples/ldapAD.xml))<br>
+- XML configuration file for JDBC Driver (refer to sample for DB2 JDBC driver [DB2JCCDriver.xml](https://github.com/ibm-ecm/container-icn/tree/master/examples/DB2JCCDriver.xml))<br>
+- XML configuration file for the IBM Content Navigator data source (refer to sample for data source configuration for DB2 [ICNDS.xml](https://github.com/ibm-ecm/container-icn/tree/master/examples/ICNDS.xml))<br>
 
 Copy XML configuration files to configDropins/overrides directory</br>
 - This should include: `ldap.xml` && `JDBC driver XML file` && `JDBC driver files` && `navigator data source xml file` (see above examples folder for examples XML files) </br>
@@ -104,7 +104,7 @@ Copy XML configuration files to configDropins/overrides directory</br>
 [root@nome1 overrides]# ls<br>
 db2jcc4.jar  DB2JCCDriver.xml  db2jcc_license_cu.jar  ICNDS.xml  ldap.xml
 
-Examples of these files can be found in [samples](https://github.ibm.com/ecm-container-service/navigator-docker/tree/master/examples).  
+Examples of these files can be found in [samples](https://github.com/ibm-ecm/container-icn/tree/master/examples).  
 
 
  
@@ -142,7 +142,7 @@ ICNSCHEMA | Navigator database schema name | No | ICNDB
 ICNTS | Navigator database tablespace name | No | ICNDB
 
 
-For monitoring environment variables, pls check [ECM Monitoring Github](https://github.ibm.com/ecm-container-service/ecm-container-monitoring#environment-variables)
+For monitoring environment variables, pls check [ECM Monitoring Github](https://github.com/ibm-ecm/container-monitoring#environment-variables)
 
 ## Run the IBM Content Navigator container with monitoring.  
 
@@ -155,7 +155,7 @@ Connect to the Bluemix metrics service by using IBM Cloud Monitoring metrics wri
 
 Refer to [kubernetes document](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) for information on persistence volume preparation.
 
-2. Create a persistence volume claim ([sample YAML file for create PVC](https://github.ibm.com/ecm-container-service/navigator-docker/tree/master/examples/ecmcfgstore.yml)):
+2. Create a persistence volume claim ([sample YAML file for create PVC](https://github.com/ibm-ecm/container-icn/blob/master/examples/ecmcfgstore.yml)):
 ```
 kubectl apply ecmcfgstore.yml
 ```
@@ -188,9 +188,9 @@ kubectl describe pv <PV_NAME>
 
     /cfgstore/icn/logs
 ```
-- Copy the overrides configuration file into NFS storage (Refer to [Configurations section](https://github.ibm.com/ecm-container-service/navigator-docker#2-configurations) for the sample configuration files.)
+- Copy the overrides configuration file into NFS storage (Refer to [Configurations section](https://github.com/ibm-ecm/container-icn#run-the-ibm-content-navigator-container-on-kubernetes) for the sample configuration files.)
 
-4. Deploy IBM Content Navigator ([sample YAML file for deploy navigator](https://github.ibm.com/ecm-container-service/navigator-docker/tree/master/examples/icn-deploy.yaml)).
+4. Deploy IBM Content Navigator ([sample YAML file for deploy navigator](https://github.com/ibm-ecm/container-icn/blob/master/examples/icn-deploy.yaml)).
 
 ```
 kubectl create -f icn-deploy.yaml
