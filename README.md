@@ -45,10 +45,10 @@ Give proper privileges to the shell script:
 chmod 755 createICNDB.sh
 ```
 
-On Linux, run the following shell (replace the parameters with the values for your system):  
+On Linux, run the following shell (replace the parameters with the values for your system) for example to create the ICN database:  
 ```
 su db2inst1
-./createICNDB.sh -n ICNDB -s ICNSCHEMA -t ICNTS -u db2inst1 -a p8admin
+./createICNDB.sh -n ICNDB -s ICNDB -t ICNDB -u db2inst1 -a p8admin
 ```
 The parameters are explained in the following table:
 
