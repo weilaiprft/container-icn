@@ -3,7 +3,7 @@
 		<jdbcDriver libraryRef="DB2JCC4Lib"/>
 		<properties.db2.jcc 
 			databaseName="ICNDB" 
-			serverName="9.30.193.120" 
+			serverName="127.0.0.1" 
 			portNumber="50000"
     		user="db2user" 
 			password="tester"
